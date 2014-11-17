@@ -430,6 +430,240 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
     line-height:44px;
 }
 
+#feature_category {
+    position: relative;   
+    width:1024px;/*988*/
+    min-height:803px;/*610*/
+    background:#221d18 url(/image/bg_feature_category.jpg) no-repeat;
+    clear:both;
+    color:#a3978a;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    font-size:18px;
+    /*padding-right:36px;*/
+    margin-bottom:20px;
+}
+#feature_category_descr{
+    min-height:350px; 
+}	
+#feature_sub_category {
+    position: relative;   
+    width:1024px;/*988*/
+    min-height:610px;
+    background:#221d18 url(/image/bg_feature_category.jpg) no-repeat;
+    clear:both;
+    color:#a3978a;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    font-size:18px;
+    /*padding-right:36px;*/
+    margin-bottom:20px;
+}
+#feature_sub_category ul{ 
+    margin:0;
+    padding:0;
+    list-style: none; 
+    padding-top:5px;
+    padding-left:19px;
+    clear:both;
+}
+#feature_sub_category li{
+    margin:0;
+    padding:0;	
+    float:left;
+    padding-left:20px;
+    padding-bottom:20px;
+}	
+#feature_category a{
+    opacity:1;
+}
+#feature_category a:hover{
+    opacity:0.7;
+}
+#feature_category_main{
+    position: relative;   
+    width:1024px;/*988*/
+    height:367px;	
+    clear:both;	
+}
+
+#product_scroll{   
+    width:1004px;/*1024*/
+    position:relative;
+    min-height:300px;
+    clear:both;	
+    color:#63584d;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    font-size:18px;
+    text-transform:uppercase;
+    padding:15px 0 0 20px;
+}
+#product_scroll ul{ 
+    margin:0;
+    padding:0;
+    list-style: none; 
+    padding-top:5px;
+    /*padding-left:19px;*/
+    clear:both;
+}
+#product_scroll li{
+    margin:0;
+    padding:0;	
+    float:left;
+    /*padding-left:36px;*/
+}	
+#product_scroll a, #product_scroll a:link, #product_scroll a:visited, #product_scroll a:active{
+    color:#ffffff;
+    text-decoration: none;
+
+}
+#product_scroll a:hover {
+    text-decoration: none; color:#938778;
+}
+
+a.catbrowse {  
+    z-index:1000;
+    opacity:0.7;
+    margin:20px 0px 0 0px;
+    width:40px;
+    height:240px;
+    display:block;
+    position:absolute;
+    cursor:pointer;
+    top:20px;
+}
+a.catright,a.catright:active  {
+    background:url(/image/scroll_right.png) no-repeat;
+    right:0;
+}
+a.catright:hover{
+    opacity:1;
+}
+
+#catitems ul {
+    float:left;
+    width:970px;
+    margin:0;
+    margin-left:15px;
+    padding:0;
+    z-index:1;
+}
+#catitems {
+    margin-left:30px;
+}
+#catitems li {
+    display:block; float:left; width:220px; overflow:hidden;  margin:6px 5px 6px 0; border:0;  background:#221d18; 
+}
+
+#feature_content{
+    position: relative;   
+    width:984px;/*1024*/
+    min-height:482px;
+    background:#352e26 url(/image/bg_features.jpg);
+    clear:both;
+    padding:20px;
+}	
+#feature_subnav{
+    position: relative;   
+    width:300px;
+    min-height:280px;
+    background:url(/image/bg_features_subnav.png) no-repeat;
+    color:#938778;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    font-size:18px;
+    font-weight: bold;
+    text-transform:uppercase;
+    float:left;
+    padding-bottom:195px;
+}
+#feature_subnav ul{ 
+    margin:0;
+    padding:0;
+    list-style: none; 
+    width:240px;
+    clear:both;
+    /*padding-top:10px;*/
+}
+#feature_subnav li{
+    margin:0;
+    padding:0;	
+    display:block;
+    padding:6px 0;
+}
+#feature_subnav a, #feature_subnav a:link, #feature_subnav a:visited, #feature_subnav a:active, #site_subnav a, #site_subnav a:link, #site_subnav a:visited, #site_subnav a:active, #site_subnav_dealer a, #site_subnav_dealer a:link, #site_subnav_dealer a:visited, #site_subnav_dealer a:active{
+    color:#938778;/*938778*/
+    text-decoration: none;
+}
+#feature_subnav a:hover, #site_subnav a:hover, #site_subnav_dealer a:hover{ text-decoration: none; color:#fff;}
+#feature_subnav .headers a, #feature_subnav .headers a:link, #feature_subnav .headers a:visited, #feature_subnav .headers a:active{
+    color:#ffffff;
+    text-decoration: none;
+}
+#feature_subnav .headers a:hover {
+    text-decoration: none;
+    color:#938778;
+}
+#feature_subnav a.in-cart {
+    color:#fff;
+    text-decoration: none;
+}
+#feature_subnav a.in-cart:hover {
+    color:#ec3a18;
+}
+
+#feature_cms{
+    color:#938778;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    font-size:16px;
+    width:650px;
+    min-height:120px;
+    float:left;
+    padding-top:15px;
+    padding-left:30px;
+    z-index:5;	
+}
+
+#feature_cms h2{
+    text-transform:uppercase;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    font-size:36px;
+    color:#FFF;
+    display:inline;
+    line-height:60px;
+}
+ul.item_gallery{
+    padding:0;
+    margin:0;
+}
+
+ul.item_gallery  li{
+    padding-right:10px;
+    padding-bottom:6px;
+    list-style:none;
+    float:left;
+}
+.citemname{
+    font-size:12px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+    color:#938778;
+    text-transform:none;
+    width:226px;
+    overflow:hidden;
+}
+.citemcode{
+    font-size:18px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+
+.exercise {
+    min-height: 150px;
+    margin-bottom: 20px;
+}
+.exercise .image {
+    float: left;
+}
+.exercise .descr {
+    padding-left: 150px;
+}
+
 #footer{
     width:1024px;
     margin:auto;
@@ -439,4 +673,67 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 #footer a {
     display: inline-block;
     margin-left: 27px;
+}
+
+/**FORMS CSS**/
+#myForm1 input{
+    color:#FFF;
+    border:0;
+    background:#29231d;
+    width:450px;
+    height:34px;
+    padding:2px;
+    font-size: 18px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm2 input,#billing input{
+    color:#FFF;
+    border:0;
+    background:#29231d;
+    width: 250px;
+    height: 34px;
+    padding: 2px;
+    font-size: 18px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm1 select{
+    background:#29231d;
+    width: 454px;
+    padding:2px;
+    font-size:18px;
+    border:0;
+    height:34px;
+    color:#FFF;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm2 select,#billing select{
+    background:#29231d;
+    width: 254px;
+    padding:2px;
+    font-size:18px;
+    border:0;
+    height:34px;
+    color:#FFF;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm2 textarea,#billing textarea{
+    background-color:#29231d;
+    width:350px;
+    color:#FFF;
+    border:0;
+    font-size: 18px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+/*RED SUBMIT BUTTONS*/
+#myForm1 input.submit{
+    background-color:#9a1f09;
+    width:454px;
+    color:#FFF;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm2 input.submit{
+    background-color:#9a1f09;
+    width:254px;
+    color:#FFF;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
