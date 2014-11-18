@@ -3,23 +3,21 @@
  * Пользовательские правила маршрутизации
  */
 $routes = array(
-/**
-    '/user/@id' => array(
-        'controller' => 'user',
+    // Путь к каталогу
+    '/product/@catalogue' => array(
+        'controller' => 'product',
+        'catalogue' => '\w+',
     ),
-    
-    '/cars/@name' => array(
-        'controller' => 'cars',
-        'action' => 'model',
-        'name' => '\w+',
+    // Путь к линейке
+    '/product/line/@line' => array(
+        'controller' => 'product',
+        'line' => '\w+',
+        'action' => 'line',
     ),
-    
-    '/calendar/@year/@month/@date' => array(
-        'controller' => 'calendar',
-        'action' => 'show',
-        'year' => '\d{4}',
-        'month' => '\d{1,2}',
-        'date' => '\d{1,2}',
+    // Путь к товару
+    '/product/@catalogue/@id' => array(
+        'controller' => 'product',
+        'catalogue' => '\w+',
+        'action' => 'item',
     ),
-/**/
 );

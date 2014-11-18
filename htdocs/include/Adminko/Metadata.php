@@ -41,7 +41,7 @@ class Metadata
             'fields' => array(
                 'line_id' => array('title' => 'Идентификатор', 'type' => 'pk'),
                 'line_title' => array('title' => 'Название', 'type' => 'string', 'main' => 1, 'errors' => array('require')),
-                'line_name' => array( 'title' => 'Ссылка', 'type' => 'string', 'no_add' => 1, 'group' => array(), 'errors' => array()),
+                'line_name' => array( 'title' => 'Ссылка', 'type' => 'string', 'no_add' => 1, 'group' => array(), 'errors' => array('require')),
                 'line_description' => array( 'title' => 'Описание', 'type' => 'text', 'editor' => 1),
                 'line_image' => array('title' => 'Логитип', 'type' => 'image', 'upload_dir' => 'line', 'errors' => array('require')),
                 'line_order' => array('title' => 'Порядок', 'type' => 'order'),
@@ -91,6 +91,22 @@ class Metadata
                 'picture' => array('table' => 'picture', 'field' => 'picture_product'),
                 'download' => array('table' => 'download', 'field' => 'download_product'),
                 'exercise' => array('table' => 'exercise', 'field' => 'exercise_product'),
+            ),
+            'relations' => array(
+                'link' => array( 'secondary_table' => 'product', 'relation_table' => 'product_link',
+                    'primary_field' => 'product_id', 'secondary_field' => 'link_product_id', 'title' => 'Опции' ),
+            ),
+        ),
+        
+        /**
+         * Таблица "Опции"
+         */
+        'product_link' => array(
+            'title' => 'Опции',
+            'internal' => true,
+            'fields' => array(
+                'product_id' => array( 'title' => 'Товар', 'type' => 'table', 'table' => 'product', 'errors' => 'require' ),
+                'link_product_id' => array( 'title' => 'Товар', 'type' => 'table', 'table' => 'product', 'errors' => 'require' ),
             ),
         ),
         

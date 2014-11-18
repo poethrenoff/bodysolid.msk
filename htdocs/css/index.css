@@ -320,6 +320,7 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 #bg_footer{
     background:#352e26;
     min-width:1164px;
+    margin-top: 20px;
 }
 
 #maincontent{
@@ -602,6 +603,7 @@ a.catright:hover{
 #feature_subnav a.in-cart {
     color:#fff;
     text-decoration: none;
+    margin-left: 60px;
 }
 #feature_subnav a.in-cart:hover {
     color:#ec3a18;
@@ -627,17 +629,37 @@ a.catright:hover{
     display:inline;
     line-height:60px;
 }
+
+#item_options{
+    clear:both;
+    display:table;
+    margin-bottom:20px;
+}	
+#item_options_img{ 
+    width:80px;
+    overflow:hidden;
+    float:left;
+    margin-right:10px;
+}
+#item_options_spec{ 
+    float:left;
+    width:550px;
+}
+#item_options_spec p{ 
+    margin-top: 0px;
+}
+
 ul.item_gallery{
     padding:0;
     margin:0;
 }
-
 ul.item_gallery  li{
     padding-right:10px;
     padding-bottom:6px;
     list-style:none;
     float:left;
 }
+
 .citemname{
     font-size:12px;
     font-family:'Trebuchet MS', Helvetica, sans-serif;
@@ -651,27 +673,15 @@ ul.item_gallery  li{
     font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
 
-.exercise {
-    min-height: 150px;
-    margin-bottom: 20px;
-}
-.exercise .image {
-    float: left;
-}
-.exercise .descr {
-    padding-left: 150px;
-}
-
 #footer{
     width:1024px;
-    height: 68px;
+    height: 64px;
     margin:auto;
     text-align: center;
-    margin-top: 20px;
 }
 #footer a {
     display: inline-block;
-    margin-left: 27px;
+    margin: 0px 50px;
 }
 
 /**FORMS CSS**/
