@@ -284,7 +284,7 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 
 #content{
     position:relative;
-    height:865px;
+    min-height:865px;
 }
 
 #main_feat{
@@ -307,9 +307,8 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 }	
 #feat_products{
     position: relative; 
-    top:-60px;
-    height:220px;/*228*/
     width:1162px;/*1170*/
+    min-height:220px;/*228*/
     padding:4px;
     background:url(/image/bg_feat_products.png) repeat;
     margin-left:auto;
@@ -324,8 +323,7 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 }
 
 #maincontent{
-    position: relative;   
-    min-height:585px;/*542*/
+    position: relative;
     width:1024px;	
     clear:both;
     margin-left:auto;
@@ -666,6 +664,7 @@ ul.item_gallery  li{
 
 #footer{
     width:1024px;
+    height: 68px;
     margin:auto;
     text-align: center;
     margin-top: 20px;
@@ -686,16 +685,6 @@ ul.item_gallery  li{
     font-size: 18px;
     font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
-#myForm2 input,#billing input{
-    color:#FFF;
-    border:0;
-    background:#29231d;
-    width: 250px;
-    height: 34px;
-    padding: 2px;
-    font-size: 18px;
-    font-family:'Trebuchet MS', Helvetica, sans-serif;
-}
 #myForm1 select{
     background:#29231d;
     width: 454px;
@@ -706,7 +695,26 @@ ul.item_gallery  li{
     color:#FFF;
     font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
-#myForm2 select,#billing select{
+#myForm1 textarea {
+    background-color:#29231d;
+    width:450px;
+    height:70px;
+    color:#FFF;
+    border:0;
+    font-size: 18px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm2 input {
+    color:#FFF;
+    border:0;
+    background:#29231d;
+    width: 250px;
+    height: 34px;
+    padding: 2px;
+    font-size: 18px;
+    font-family:'Trebuchet MS', Helvetica, sans-serif;
+}
+#myForm2 select {
     background:#29231d;
     width: 254px;
     padding:2px;
@@ -716,9 +724,10 @@ ul.item_gallery  li{
     color:#FFF;
     font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
-#myForm2 textarea,#billing textarea{
+#myForm2 textarea {
     background-color:#29231d;
-    width:350px;
+    width:250px;
+    height:70px;
     color:#FFF;
     border:0;
     font-size: 18px;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?= $this->escape($this->meta_title) ?></title>
+        <meta name="keywords" content="<?= $this->escape($this->meta_keywords) ?>"/> 
+        <meta name="description" content="<?= $this->escape($this->meta_description) ?>"/> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="shortcut icon" href="/image/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="/css/index.css"/>
+        <script type="text/javascript" src="/js/jquery.tools.min.js"></script>
+    </head>
+    <body class="default">
+        <div id="bg_header">
+            <div id="header">
+                <div id="logo">
+                    <a href="/">
+                        <img src="/image/bodysolid_logo.png" alt="Body Solid" border="0" />
+                    </a>
+                </div>
+                <div id="topnav">
+<?= $this->menu ?>
+                </div>
+                <div id="cart">
+<?= $this->cart ?>
+                </div>
+                <div id="search_bar">
+<?= $this->search ?>
+                </div>
+                <div id="mainnav">
+<?= $this->catalogue ?>
+                </div>
+            </div>
+        </div>
+        <div id="maincontent">
+            <div id="breadcrumbs">
+<?= $this->path ?>
+            </div>
+            <div id="site_content">
+                <div id="site_full">
+<?= $this->content ?>	
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div id="bg_footer">
+            <div id="footer">
+<?= $this->line ?>
+            </div>
+        </div>
+    </body>
+</html>
