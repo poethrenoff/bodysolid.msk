@@ -432,31 +432,16 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 #feature_category {
     position: relative;   
     width:1024px;/*988*/
-    min-height:803px;/*610*/
     background:#221d18 url(/image/bg_feature_category.jpg) no-repeat;
     clear:both;
     color:#a3978a;
     font-family:'Trebuchet MS', Helvetica, sans-serif;
     font-size:18px;
-    /*padding-right:36px;*/
-    margin-bottom:20px;
 }
 #feature_category_descr{
     min-height:350px; 
 }	
-#feature_sub_category {
-    position: relative;   
-    width:1024px;/*988*/
-    min-height:610px;
-    background:#221d18 url(/image/bg_feature_category.jpg) no-repeat;
-    clear:both;
-    color:#a3978a;
-    font-family:'Trebuchet MS', Helvetica, sans-serif;
-    font-size:18px;
-    /*padding-right:36px;*/
-    margin-bottom:20px;
-}
-#feature_sub_category ul{ 
+#feature_category ul{ 
     margin:0;
     padding:0;
     list-style: none; 
@@ -464,7 +449,7 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
     padding-left:19px;
     clear:both;
 }
-#feature_sub_category li{
+#feature_category li{
     margin:0;
     padding:0;	
     float:left;
@@ -670,6 +655,7 @@ ul.item_gallery  li{
 }
 .citemcode{
     font-size:18px;
+    font-weight: bold;
     font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
 

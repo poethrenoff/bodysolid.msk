@@ -1,0 +1,29 @@
+<div id="feature_category_main">
+    <?= $this->getCatalogueDescription() ?>
+</div>
+<?php foreach ($this->getCatalogueList() as $catalogue_item) { ?>
+<div id="product_scroll">
+    <a href="<?= $catalogue_item->getCatalogueUrl() ?>"><?= $catalogue_item->getCatalogueTitle() ?> »</a><br>
+    <div style="height:270px; width:994px;">
+        <div class="items" id="catitems">	
+            <ul>
+<?php   foreach ($catalogue_item->getProductList(4) as $product_item) { ?>
+                <li>
+                    <a href="<?= $product_item->getProductUrl() ?>" title="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>"></a>
+                    <a href="<?= $product_item->getProductUrl() ?>" title="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>"><img src="<?= $product_item->getProductImage() . '/r/226/226' ?>" border="0" alt="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>"></a>
+                    <a href="<?= $product_item->getProductUrl() ?>" title="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>">
+                        <div class="citemcode"><?= $product_item->getProductArticle() ?></div>
+                        <div class="citemname"><?= $product_item->getProductTitle() ?></div>
+                    </a>
+                </li>
+<?php   } ?>
+            </ul> 
+        </div>
+    </div>
+    <a class="next catbrowse catright" href="<?= $catalogue_item->getCatalogueUrl() ?>" title="<?= $catalogue_item->getCatalogueTitle() ?>"></a>
+    <br>
+    <img src="/image/maincat_divider.png">
+    <br>
+</div>
+<?php } ?>
+<div style="clear: both;">&nbsp;</div>

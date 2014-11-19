@@ -1,0 +1,27 @@
+<div id="feature_category_main">
+<?php if ($this instanceof Adminko\Model\CatalogueModel ) { ?>
+    <?= $this->getCatalogueDescription() ?>
+<?php } elseif ($this instanceof Adminko\Model\LineModel ) { ?>
+    <?= $this->getLineDescription() ?>
+<?php } ?>
+</div>
+<br/>
+<div id="product_scroll">
+    <div style="height:270px; width:994px;">
+        <div class="items" id="catitems">	
+            <ul>
+<?php foreach ($this->getProductList() as $product_item) { ?>
+                <li>
+                    <a href="<?= $product_item->getProductUrl() ?>" title="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>"></a>
+                    <a href="<?= $product_item->getProductUrl() ?>" title="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>"><img src="<?= $product_item->getProductImage() . '/r/226/226' ?>" border="0" alt="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>"></a>
+                    <a href="<?= $product_item->getProductUrl() ?>" title="<?= $product_item->getProductArticle() ?> - <?= $product_item->getProductTitle() ?>">
+                        <div class="citemcode"><?= $product_item->getProductArticle() ?></div>
+                        <div class="citemname"><?= $product_item->getProductTitle() ?></div>
+                    </a>
+                </li>
+<?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>
+<div style="clear: both;">&nbsp;</div>

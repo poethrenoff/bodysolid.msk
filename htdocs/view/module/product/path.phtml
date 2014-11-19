@@ -1,0 +1,16 @@
+<?php $path_length = count($this->path); $path_index = 0;?>
+<?php foreach ($this->path as $path_item) { ?>
+<?php   if ($path_item instanceof Adminko\Model\CatalogueModel ) { ?>
+<a href="<?= $path_item->getCatalogueUrl() ?>">
+    <?= $path_item->getCatalogueTitle() ?><?php if (++$path_index < $path_length) { ?> » <?php } ?> 
+</a>
+<?php   } elseif ($path_item instanceof Adminko\Model\LineModel ) { ?>
+<a href="<?= $path_item->getLineUrl() ?>">
+    <?= $path_item->getLineTitle() ?><?php if (++$path_index < $path_length) { ?> » <?php } ?> 
+</a>
+<?php   } elseif ($path_item instanceof Adminko\Model\ProductModel ) { ?>
+<a href="<?= $path_item->getProductUrl() ?>">
+    <?= $path_item->getProductArticle() ?><?php if (++$path_index < $path_length) { ?> » <?php } ?> 
+</a>
+<?php   } ?>
+<?php } ?>

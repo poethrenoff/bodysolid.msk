@@ -35,12 +35,18 @@
             <div id="breadcrumbs">
 <?= $this->path ?>
             </div>
+<?php if ($this->product) { ?>
+            <div id="feature_category">
+<?= $this->content ?>
+            </div>
+<?php } else { ?>
             <div id="site_content">
                 <div id="site_full">
 <?= $this->content ?>	
                 </div>
                 <div class="clear"></div>
             </div>
+<?php } ?>
         </div>
         <div id="bg_footer">
             <div id="footer">

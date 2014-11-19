@@ -1,0 +1,23 @@
+<div id="navlnk-home">
+    <ul id="navmenu-h">
+        <li>
+            <a href=""></a>
+        </li>
+    </ul>
+<?php foreach ($this->getChildren() as $group_item) { ?>
+    <ul id="navmenu-h">
+        <li>
+            <a href="<?= $group_item->getCatalogueUrl() ?>">
+                <?= $group_item->getCatalogueTitle() ?>
+            </a>
+            <ul>
+<?php 	foreach ($group_item->getChildren() as $category_item) { ?>
+                <li>
+                    <a href="<?= $category_item->getCatalogueUrl() ?>"><?= $category_item->getCatalogueTitle() ?></a>
+                </li>
+<?php 	} ?>
+            </ul>
+        </li>
+    </ul>
+<?php } ?>
+</div>

@@ -17,6 +17,15 @@ class LineModel extends Model
         return $this->get($record['line_id'], $record);
     }
     
+    // Возвращает список товаров линейки
+    public function getProductList($limit = null)
+    {
+        return Model::factory('product')->getList(
+            array('product_active' => 1, 'product_line' => $this->getId()),
+            array('product_order' => 'asc'), $limit
+        );
+    }
+    
     // Возвращает URL линейки
     public function getLineUrl()
     {

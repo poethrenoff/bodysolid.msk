@@ -15,9 +15,10 @@ $routes = array(
         'action' => 'line',
     ),
     // Путь к товару
-    '/product/@catalogue/@id' => array(
+    '/product/@catalogue/@product' => array(
         'controller' => 'product',
         'catalogue' => '\w+',
+        'product' => '\w+',
         'action' => 'item',
     ),
 );
