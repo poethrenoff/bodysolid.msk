@@ -1,0 +1,15 @@
+В интернет-магазин Bodysolid поступил новый заказ.<br/><br/>
+<?php $item_index = 1; ?>
+<?php foreach ($this->cart->get() as $item) { ?>
+<?php 		$product_item = Adminko\Model\Model::factory('product')->get($item->id); ?>
+<?= $item_index ?>. <?= $product_item->getProductTitle() ?> - <?= $item->quantity ?> x <?= $item->price ?> (<?= $item->price ?> р.)<br/>
+<?php 		$item_index++; ?>
+<?php } ?>
+<br/>
+Общая стоимость заказа: <?= $this->cart->getSum() ?> р.<br/><br/>
+
+ФИО: <?= $this->fromRequest('name') ?><br/>
+Телефон: <?= $this->fromRequest('phone') ?><br/>
+Email: <?= $this->fromRequest('email') ?><br/>
+Адрес: <?= $this->fromRequest('address') ?><br/>
+Комментарий: <?= $this->fromRequest('comment') ?><br/>

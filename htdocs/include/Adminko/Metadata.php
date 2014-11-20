@@ -223,10 +223,10 @@ class Metadata
         ),
         
         /**
-         * Таблица "Позиции заказа"
+         * Таблица "Позиции заказов"
          */
         'purchase_item' => array(
-            'title' => 'Позиции заказа',
+            'title' => 'Позиции заказов',
             'no_add' => true,
             'fields' => array(
                 'item_id' => array('title' => 'Идентификатор', 'type' => 'pk'),

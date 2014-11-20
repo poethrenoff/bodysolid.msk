@@ -8,6 +8,8 @@
         <link rel="shortcut icon" href="/image/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="/css/index.css"/>
         <script type="text/javascript" src="/js/jquery.tools.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+        <script type="text/javascript" src="/js/interface.js"></script>
     </head>
     <body class="default">
         <div id="bg_header">
@@ -41,10 +43,6 @@
             </div>
 <?php } elseif ($this->product) { ?>
             <div id="feature_content">
-<?= $this->content ?>
-            </div>
-<?php } elseif ($this->search) { ?>
-            <div id="search_body">
 <?= $this->content ?>
             </div>
 <?php } else { ?>

@@ -1,0 +1,130 @@
+<h1>Оформление заказа</h1>
+<?php if ($this->cart->getQuantity()) { ?>
+<br><br>
+<form class="cart" method="post" action="<?= Adminko\System::urlFor(array('controller' => 'cart', 'action' => 'save')) ?>">
+    <table>
+        <tr>
+            <td class="title name">
+                Товар
+            </td>
+            <td class="title price">
+                Цена
+            </td>
+            <td class="title quantity">
+                Количество
+            </td>
+            <td class="title cost">
+                Стоимость
+            </td>
+        </tr>
+<?php 		foreach ($this->cart->get() as $item) { ?>
+<?php 			$product = Adminko\Model\Model::factory('product')->get($item->id); ?>
+        <tr>
+            <td class="name">
+                <div class="cart_image_container">
+                    <img src="<?= $product->getProductImage() ?>/r/50/50" alt="<?= $product->getProductArticle() ?> - <?= $product->getProductTitle() ?>"/>
+                </div>
+                <div class="cart_title_container">
+                    <a href="<?= $product->getProductUrl() ?>"><?= $product->getProductArticle() ?> <?= $product->getProductTitle() ?></a>
+                </div>
+            </td>
+            <td class="price">
+                <?= $item->price ?>
+            </td>
+            <td class="quantity">
+                <?= $item->quantity ?>
+            </td>
+            <td class="cost">
+                <?= $item->quantity * $item->price ?>
+            </td>
+        </tr>
+<?php 		} ?>
+        <tr>
+            <td class="total name">
+                &nbsp;
+            </td>
+            <td class="total price">
+                Итого:
+            </td>
+            <td class="total quantity">
+                <?= $this->cart->getQuantity() ?>
+            </td>
+            <td class="total cost">
+                <?= $this->cart->getSum() ?>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<form id="myForm1" action="" method="post">
+    <table border="0" cellpadding="3" cellspacing="3">
+        <tbody>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Ваше имя <font color="#ec3a18">*</font></label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="name" type="text" value="<?= $this->escape($this->fromRequest('name')) ?>">
+<?php if ($this->error['name']) { ?>
+                    <font color="#ec3a18"><?= $this->error['name'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Ваш телефон <font color="#ec3a18">*</font></label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="phone" type="text" value="<?= $this->escape($this->fromRequest('phone')) ?>">
+<?php if ($this->error['phone']) { ?>
+                    <font color="#ec3a18"><?= $this->error['phone'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Ваш email <font color="#ec3a18">*</font></label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="email" type="text" value="<?= $this->escape($this->fromRequest('email')) ?>">
+<?php if ($this->error['email']) { ?>
+                    <font color="#ec3a18"><?= $this->error['email'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Адрес доставки</label>
+                </td>
+                <td align="left" valign="top">
+                    <textarea name="address"><?= $this->escape($this->fromRequest('address')) ?></textarea>
+<?php if ($this->error['address']) { ?>
+                    <font color="#ec3a18"><?= $this->error['address'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Комментарий</label>
+                </td>
+                <td align="left" valign="top">
+                    <textarea name="comment"><?= $this->escape($this->fromRequest('comment')) ?></textarea>
+<?php if ($this->error['comment']) { ?>
+                    <font color="#ec3a18"><?= $this->error['comment'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    &nbsp;
+                </td>
+                <td align="left" valign="top">
+                    <input class="submit" type="submit" value="Отправить »">
+                </td>
+            </tr>           
+         </tbody>
+    </table>
+</form>
+<?php } else { ?>
+<p>Ваша корзина пуста.</p>
+<?php } ?>

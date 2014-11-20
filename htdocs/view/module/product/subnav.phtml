@@ -26,9 +26,16 @@
     </ul>
 <?php } ?>
     <ul>
-        <li>Цена: <b><?= $this->getProductPrice() ?></b> руб</li>
+        <li>
+            Цена: <b><?= $this->getProductPrice() ?></b> руб
+        </li>
     </ul>
     <ul>
-        <li><a href="" class="in-cart">Купить</a></li>
+        <li>
+            <a href="/cart" class="to-cart" onclick="return buyItem(<?= $this->getId() ?>)">Купить</a>
+            <div class="in-cart">
+                Товар отправлен в корзину.<br/><a href="/purchase">Оформить заказ</a>
+            </div>
+        </li>
     </ul>
 </div>

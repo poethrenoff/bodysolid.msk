@@ -1,0 +1,6 @@
+Email: <?= $this->fromRequest('email') ?><br/>
+ФИО: <?= $this->fromRequest('person') ?><br/>
+Название компании: <?= $this->fromRequest('name') ?><br/>
+Тип компании: <?= $this->type_list[$this->fromRequest('type')] ?><br/>
+Телефон: <?= $this->fromRequest('phone') ?><br/>
+Факс: <?= $this->fromRequest('fax') ?><br/>

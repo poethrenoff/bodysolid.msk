@@ -1,0 +1,101 @@
+<h1>Станьте нашим оптовым покупателем!</h1>
+<p>Если Вы хотите работать с нашей компнией на постоянной основе, заполните анкету на данной странице.
+    В ответ наш менеджер вышлет Вам информацию об условиях сотрудничества и актуальный прайс-лист.
+    Рассылка прайс-листа осуществляется не чаще 1 раза в месяц.</p>
+<form id="myForm1" action="" method="post">
+    <table border="0" cellpadding="3" cellspacing="3">
+        <tbody>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Email <font color="#ec3a18">*</font></label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="email" type="text" value="<?= $this->escape($this->fromRequest('email')) ?>">
+<?php if ($this->error['email']) { ?>
+                    <font color="#ec3a18"><?= $this->error['email'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Ваше имя, фамилия, отчество <font color="#ec3a18">*</font></label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="person" type="text" value="<?= $this->escape($this->fromRequest('person')) ?>">
+<?php if ($this->error['person']) { ?>
+                    <font color="#ec3a18"><?= $this->error['person'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Название компании (для юрлиц)</label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="name" type="text" value="<?= $this->escape($this->fromRequest('name')) ?>">
+<?php if ($this->error['name']) { ?>
+                    <font color="#ec3a18"><?= $this->error['name'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Тип компании (для юрлиц обязательно)</label>
+                </td>
+                <td align="left" valign="top">
+                    <select name="type">
+                        <option value=""></option>
+<?php foreach ($this->type_list as $value => $title) { ?>
+                        <option value="<?= $value ?>"<?php if ($this->inRequest('type', $value)) { ?> selected="selected"<?php } ?>><?= $title ?></option>
+<?php } ?>
+                    </select>
+<?php if ($this->error['type']) { ?>
+                    <font color="#ec3a18"><?= $this->error['type'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Телефон (для юрлиц обязательно)</label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="phone" type="text" value="<?= $this->escape($this->fromRequest('phone')) ?>">
+<?php if ($this->error['phone']) { ?>
+                    <font color="#ec3a18"><?= $this->error['phone'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Факс (для юрлиц обязательно)</label>
+                </td>
+                <td align="left" valign="top">
+                    <input name="fax" type="text" value="<?= $this->escape($this->fromRequest('fax')) ?>">
+<?php if ($this->error['fax']) { ?>
+                    <font color="#ec3a18"><?= $this->error['fax'] ?></font>
+<?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    <label>Введите символы с картинки <font color="#ec3a18">*</font></label><br><br>
+                    <center><img src="/image/captcha.php" /></center>
+                </td>
+                <td align="left" valign="top">
+                    <input name="captcha" type="text" value="" autocomplete="off">
+<?php if ($this->error['captcha']) { ?>
+                    <font color="#ec3a18"><?= $this->error['captcha'] ?></font>
+<?php } ?>
+                </td>
+            </tr>           
+            <tr>
+                <td align="left" valign="top">
+                    &nbsp;
+                </td>
+                <td align="left" valign="top">
+                    <input class="submit" type="submit" value="Зарегистрироваться »">
+                </td>
+            </tr>           
+         </tbody>
+    </table>
+</form>
