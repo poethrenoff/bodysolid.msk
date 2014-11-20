@@ -43,6 +43,10 @@
             <div id="feature_content">
 <?= $this->content ?>
             </div>
+<?php } elseif ($this->search) { ?>
+            <div id="search_body">
+<?= $this->content ?>
+            </div>
 <?php } else { ?>
             <div id="site_content">
                 <div id="site_full">

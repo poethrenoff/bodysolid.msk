@@ -56,7 +56,7 @@ class ProductModel extends Model
     // Возвращает список опций
     public function getOptionsList()
     {
-        $product_link_list = Db::selectAll('
+        $records = Db::selectAll('
                 select
                     product.*
                 from
@@ -68,7 +68,7 @@ class ProductModel extends Model
                     product.product_order',
             array('product_id' => $this->getId(), 'product_active' => 1)
         );
-        return $this->getBatch($product_link_list);
+        return $this->getBatch($records);
     }
 
     // Возвращает упражнения товара
@@ -88,12 +88,12 @@ class ProductModel extends Model
     }
     
     // Поисковый запрос
-    public function getSearchResult($search_value, $order = array())
+    public function getSearchResult($search_value)
     {
         $search_words = preg_split('/\s+/', $search_value);
             
         $filter_clause = array();
-        foreach (array('product_title', 'product_description') as $field_name) {
+        foreach (array('product_article', 'product_title', 'product_description') as $field_name) {
             $field_filter_clause = array();
             foreach ($search_words as $search_index => $search_word) {
                 $field_prefix = $field_name . '_' . $search_index;
@@ -103,17 +103,12 @@ class ProductModel extends Model
             $filter_clause[] = join(' and ', $field_filter_clause);
         }
         
-        $order_conds = array();
-        foreach ($order as $field => $dir) {
-            $order_conds[] = "{$field} {$dir}";
-        }
-        
         $records = Db::selectAll('
             select product.* from product
                 inner join catalogue on product.product_catalogue = catalogue.catalogue_id
             where (' . join(' or ', $filter_clause) . ') and
                 product_active = :product_active and catalogue_active = :catalogue_active
-            ' . ($order_conds ? 'order by ' . join(', ', $order_conds) : ''),
+            order by product_order asc',
             $filter_binds + array('product_active' => 1, 'catalogue_active' => 1)
         );
         
