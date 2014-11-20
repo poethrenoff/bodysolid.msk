@@ -4,7 +4,6 @@ namespace Adminko\Admin\Table;
 use Adminko\System;
 use Adminko\Db\Db;
 use Adminko\Field\Field;
-use Adminko\Model\Model;
 
 class ProductTable extends Table
 {
@@ -17,6 +16,14 @@ class ProductTable extends Table
             select property_id, value from product_property where product_id = :product_id', array('product_id' => System::id()));
         foreach ($product_properties as $product_property) {
             Db::insert('product_property', array('product_id' => $primary_field) + $product_property);
+        }
+        
+        // Копируем упражнения товара
+        $product_exercises = Db::selectAll('
+            select * from exercise where exercise_product = :product_id', array('product_id' => System::id()));
+        foreach ($product_exercises as $product_exercise) {
+            unset($product_exercise['exercise_id']);
+            Db::insert('exercise', array('exercise_product' => $primary_field) + $product_exercise);
         }
 
         if ($redirect) {
