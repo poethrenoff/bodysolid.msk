@@ -1,0 +1,18 @@
+<?= Adminko\View::block('module/product/subnav', $this) ?>
+
+<div id="feature_cms">
+    <h2>Опции</h2>
+<?php foreach ($this->getOptionsList() as $product) { ?>
+    <div id="item_options">
+        <div id="item_options_img">
+            <a href="<?= $product->getProductUrl() ?>" title="<?= $product->getProductArticle() ?> - <?= $product->getProductTitle() ?>"><img src="<?= $product->getProductImage() . '/r/80/80' ?>" alt="<?= $product->getProductArticle() ?> - <?= $product->getProductTitle() ?>"></a>
+        </div>
+        <div id="item_options_spec">
+            <b><a href="<?= $product->getProductUrl() ?>"><?= $product->getProductArticle() ?></a></b>
+            <br>
+            <a href="<?= $product->getProductUrl() ?>"><?= $product->getProductTitle() ?></a>
+        </div>
+    </div>
+<?php } ?>
+</div>
+<div class="clear"></div>

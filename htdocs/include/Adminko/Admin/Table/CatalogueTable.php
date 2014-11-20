@@ -7,8 +7,8 @@ class CatalogueTable extends Table
     {
         if (!init_string('catalogue_name')) {
             $_REQUEST['catalogue_name'] = to_file_name(init_string('catalogue_title'), true);
+            unset($this->fields['catalogue_name']['no_add']);
         }
-        unset($this->fields['catalogue_name']['no_add']);
 
         $primary_field = parent::actionAddSave(false);
 

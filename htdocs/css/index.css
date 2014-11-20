@@ -62,7 +62,7 @@ img {
     height:76px;/*81*/
     position:relative;   
     clear:both;
-    z-index:10000;
+    z-index:1000;
 }
 
 #header{
@@ -78,7 +78,7 @@ img {
     margin: 0 0 0 -614px;*/
     margin-left:auto;
     margin-right:auto;
-    z-index:10001;
+    z-index:1001;
 }
 #logo{
     width:319px;

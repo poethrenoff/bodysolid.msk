@@ -24,12 +24,12 @@ class ProductModel extends Model
     }
 
     // Возвращает URL товара
-    public function getProductUrl()
+    public function getProductUrl($action = 'features')
     {
         return System::urlFor(array('controller' => 'product',
             'catalogue' => $this->getCatalogue()->getCatalogueName(),
             'product' => to_file_name($this->getProductArticle(), true),
-            'action' => 'item'));
+            'action' => $action));
     }
     
     // Возвращает изображения товара
@@ -51,6 +51,40 @@ class ProductModel extends Model
         }
         $default_image = current($picture_list);
         return $default_image->getPictureImage();
+    }
+    
+    // Возвращает список опций
+    public function getOptionsList()
+    {
+        $product_link_list = Db::selectAll('
+                select
+                    product.*
+                from
+                    product
+                    inner join product_link on product_link.link_product_id = product.product_id
+                where
+                    product_link.product_id = :product_id and product.product_active = :product_active
+                order by
+                    product.product_order',
+            array('product_id' => $this->getId(), 'product_active' => 1)
+        );
+        return $this->getBatch($product_link_list);
+    }
+
+    // Возвращает упражнения товара
+    public function getExercisesList()
+    {
+        return Model::factory('exercise')->getList(
+            array('exercise_product' => $this->getId()), array('exercise_order' => 'asc')
+        );
+    }
+    
+    // Возвращает файлы товара
+    public function getDownloadList()
+    {
+        return Model::factory('download')->getList(
+            array('download_product' => $this->getId()), array('download_order' => 'asc')
+        );
     }
     
     // Поисковый запрос

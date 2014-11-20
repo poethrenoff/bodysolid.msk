@@ -22,7 +22,7 @@ class ProductModule extends Module
         $catalogue = $this->getCatalogue($catalogue_name);
 
         $this->view->assign($catalogue);
-        $this->output['product'] = true;
+        $this->output['category'] = true;
         
         if ($catalogue->getCatalogueParent()) {
             $this->content = $this->view->fetch('module/product/list');
@@ -38,18 +38,49 @@ class ProductModule extends Module
         $line = $this->getLine($line_name);
         
         $this->view->assign($line);
-        $this->output['product'] = true;
+        $this->output['category'] = true;
         
         $this->content = $this->view->fetch('module/product/list');
     }
 
-    protected function actionItem()
+    private function actionItem($action)
     {
         $product_article = System::getParam('product');
         $product = $this->getProduct($product_article);
         
         $this->view->assign($product);
-        $this->content = $this->view->fetch('module/product/item');
+        $this->output['product'] = true;
+        $this->content = $this->view->fetch('module/product/' . $action);
+    }
+
+    protected function actionFeatures()
+    {
+        $this->actionItem('features');
+    }
+
+    protected function actionProperty()
+    {
+        $this->actionItem('property');
+    }
+
+    protected function actionGallery()
+    {
+        $this->actionItem('gallery');
+    }
+    
+    protected function actionOptions()
+    {
+        $this->actionItem('options');
+    }
+    
+    protected function actionExercises()
+    {
+        $this->actionItem('exercises');
+    }
+    
+    protected function actionDownload()
+    {
+        $this->actionItem('download');
     }
 
     protected function actionMenu()
@@ -67,14 +98,7 @@ class ProductModule extends Module
     protected function actionPath()
     {
         $path = array();
-        if (System::action() == 'item') {
-            $product_article = System::getParam('product');
-            $path[] = $product = $this->getProduct($product_article);
-            $path[] = $catalogue = Model::factory('catalogue')->get($product->getProductCatalogue());
-            if ($catalogue->getCatalogueParent()) {
-                $path[] = Model::factory('catalogue')->get($catalogue->getCatalogueParent());
-            }
-        } elseif (System::action() == 'index') {
+        if (System::action() == 'index') {
             $catalogue_name = System::getParam('catalogue');
             $path[] = $catalogue = $this->getCatalogue($catalogue_name);
             if ($catalogue->getCatalogueParent()) {
@@ -83,7 +107,15 @@ class ProductModule extends Module
         } elseif (System::action() == 'line') {
             $line_name = System::getParam('line');
             $path[] = $this->getLine($line_name);
+        } else {
+            $product_article = System::getParam('product');
+            $path[] = $product = $this->getProduct($product_article);
+            $path[] = $catalogue = Model::factory('catalogue')->get($product->getProductCatalogue());
+            if ($catalogue->getCatalogueParent()) {
+                $path[] = Model::factory('catalogue')->get($catalogue->getCatalogueParent());
+            }
         }
+        
         $this->view->assign('path', array_reverse($path));
         $this->content = $this->view->fetch('module/product/path');
     }

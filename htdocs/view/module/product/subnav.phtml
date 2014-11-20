@@ -1,0 +1,34 @@
+<div id="feature_subnav">
+    <a href="<?= $this->getProductUrl() ?>"><?= $this->getProductTitle() ?></a>
+    <br>
+    <span class="headers">
+        <a href="<?= $this->getProductUrl() ?>"><?= $this->getProductArticle() ?></a>
+    </span>
+    <br>
+    <a href="<?= $this->getProductUrl() ?>" title="<?= $this->getProductArticle() ?> - <?= $this->getProductTitle() ?>">
+        <img src="<?= $this->getProductImage() ?>/r/150/150" alt="<?= $this->getProductArticle() ?> - <?= $this->getProductTitle() ?>" style="height: 150px">
+    </a>
+<?php $product_menu = array(
+   'features' => 'Преимущества',
+   'property' => 'Характеристики',
+   'gallery' => 'Галерея',
+   'options' => 'Опции',
+   'exercises' => 'Упражнения',
+   'download' => 'Скачать',   
+); ?>
+<?php foreach ($product_menu as $action => $title) { ?>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl($action) ?>" <?php if (Adminko\System::action() == $action) { ?> style="color:white;"<?php } ?>>
+                <?= $title  ?> 
+            </a>
+        </li>
+    </ul>
+<?php } ?>
+    <ul>
+        <li>Цена: <b><?= $this->getProductPrice() ?></b> руб</li>
+    </ul>
+    <ul>
+        <li><a href="" class="in-cart">Купить</a></li>
+    </ul>
+</div>

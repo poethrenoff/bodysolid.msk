@@ -1,0 +1,37 @@
+<?= Adminko\View::block('module/product/subnav', $this) ?>
+
+<div id="feature_cms">
+    <script src="/js/fancybox/jquery.fancybox-1.3.4.js"></script>
+    <link rel="stylesheet" type="text/css" href="/js/fancybox/jquery.fancybox-1.3.4.css" />
+    <script>
+        $(document).ready(function() {
+            $(".fancybox-thumb").fancybox({
+                prevEffect	: 'none',
+                nextEffect	: 'none',
+                helpers	: {
+                    title	: {
+                        type: 'outside'
+                    },
+                    overlay	: {
+                        opacity : 0.8,
+                        css : {
+                            'background-color' : '#000'
+                        }
+                    },
+                    thumbs	: {
+                        width	: 50,
+                        height	: 50
+                    }
+                }
+            });
+        });
+    </script>
+
+    <h2>Галлерея</h2>
+    <ul class="item_gallery">
+<?php foreach ($this->getPictureList() as $picture) { ?>
+        <li><a class="fancybox-thumb" rel="fancybox-thumb" href="<?= $picture->getPictureImage() ?>" title=""><img src="<?= $picture->getPictureImage() . '/r/150/150' ?>" border="0"></a></li>
+<?php } ?>
+    </ul> 
+</div>
+<div class="clear"></div>

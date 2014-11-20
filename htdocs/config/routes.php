@@ -14,11 +14,17 @@ $routes = array(
         'line' => '\w+',
         'action' => 'line',
     ),
-    // Путь к товару
+    // Путь к товару по умолчанию
     '/product/@catalogue/@product' => array(
         'controller' => 'product',
         'catalogue' => '\w+',
         'product' => '\w+',
-        'action' => 'item',
+        'action' => 'features'
+    ),
+    // Путь к товару, прочие вкладки
+    '/product/@catalogue/@product/@action' => array(
+        'controller' => 'product',
+        'catalogue' => '\w+',
+        'product' => '\w+',
     ),
 );

@@ -1,0 +1,11 @@
+<?= Adminko\View::block('module/product/subnav', $this) ?>
+
+<div id="feature_cms">
+    <h2>Скачать</h2>
+    <ul>
+<?php foreach ($this->getDownloadList() as $download) { ?>
+        <li><a href="<?= $download -> getDownloadFile() ?>"><?= $download -> getDownloadTitle() ?></a> (<?= format_size($download -> getDownloadSize()) ?>)</li>
+<?php } ?>
+    </ul>
+</div>
+<div class="clear"></div>

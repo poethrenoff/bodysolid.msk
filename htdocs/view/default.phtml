@@ -35,8 +35,12 @@
             <div id="breadcrumbs">
 <?= $this->path ?>
             </div>
-<?php if ($this->product) { ?>
+<?php if ($this->category) { ?>
             <div id="feature_category">
+<?= $this->content ?>
+            </div>
+<?php } elseif ($this->product) { ?>
+            <div id="feature_content">
 <?= $this->content ?>
             </div>
 <?php } else { ?>

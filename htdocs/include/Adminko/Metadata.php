@@ -131,7 +131,8 @@ class Metadata
             'fields' => array(
                 'download_id' => array('title' => 'Идентификатор', 'type' => 'pk'),
                 'download_product' => array('title' => 'Товар', 'type' => 'table', 'table' => 'product', 'errors' => array('require')),
-                'download_file' => array('title' => 'Файл', 'type' => 'image', 'upload_dir' => 'download', 'main' => 1, 'errors' => array('require')),
+                'download_title' => array('title' => 'Название', 'type' => 'string', 'main' => 1, 'errors' => array('require')),
+                'download_file' => array('title' => 'Файл', 'type' => 'file', 'upload_dir' => 'download', 'errors' => array('require')),
                 'download_size' => array('title' => 'Размер', 'type' => 'float', 'no_add' => 1, 'no_edit' => 1),
                 'download_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('download_product')),
             )
@@ -145,7 +146,8 @@ class Metadata
             'fields' => array(
                 'exercise_id' => array('title' => 'Идентификатор', 'type' => 'pk'),
                 'exercise_product' => array('title' => 'Товар', 'type' => 'table', 'table' => 'product', 'errors' => array('require')),
-                'exercise_image' => array('title' => 'Изображение', 'type' => 'image', 'upload_dir' => 'exercise', 'main' => 1, 'errors' => array('require')),
+                'exercise_title' => array('title' => 'Название', 'type' => 'string', 'main' => 1, 'errors' => array('require')),
+                'exercise_image' => array('title' => 'Изображение', 'type' => 'image', 'upload_dir' => 'exercise', 'errors' => array('require')),
                 'exercise_description' => array('title' => 'Описание', 'type' => 'text', 'editor' => 1, 'errors' => array('require')),
                 'exercise_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('exercise_product')),
             )

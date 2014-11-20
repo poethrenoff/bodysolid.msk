@@ -7,8 +7,8 @@ class LineTable extends Table
     {
         if (!init_string('line_name')) {
             $_REQUEST['line_name'] = to_file_name(init_string('line_title'), true);
+            unset($this->fields['line_name']['no_add']);
         }
-        unset($this->fields['line_name']['no_add']);
 
         $primary_field = parent::actionAddSave(false);
 

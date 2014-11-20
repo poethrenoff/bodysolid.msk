@@ -1,0 +1,17 @@
+<?= Adminko\View::block('module/product/subnav', $this) ?>
+
+<div id="feature_cms">
+    <h2>Характеристики</h2>
+    <ul>
+<?php   foreach ($this->getPropertyList() as $property) { ?>
+<?php       if ($property->getPropertyKind() == 'number' && !is_null($property->getPropertyValue()) ||
+        $property->getPropertyKind() == 'string' && $property->getPropertyValue() !== '' ||
+        $property->getPropertyKind() == 'select' && $property->getPropertyValue()) { ?>
+        <li>
+            <?= $property->getPropertyTitle() ?>: <?= $property->getPropertyValue() ?> <?= $property->getPropertyUnit() ?>
+        </li>
+<?php       } ?>
+<?php   } ?>
+    </ul>
+</div>
+<div class="clear"></div>
