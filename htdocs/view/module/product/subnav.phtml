@@ -8,19 +8,61 @@
     <a href="<?= $this->getProductUrl() ?>" title="<?= $this->getProductArticle() ?> - <?= $this->getProductTitle() ?>">
         <img src="<?= $this->getProductImage() ?>/r/150/150" alt="<?= $this->getProductArticle() ?> - <?= $this->getProductTitle() ?>" style="height: 150px">
     </a>
-<?php $product_menu = array(
-   'features' => 'Преимущества',
-   'property' => 'Характеристики',
-   'gallery' => 'Галерея',
-   'options' => 'Опции',
-   'exercises' => 'Упражнения',
-   'download' => 'Скачать',   
-); ?>
-<?php foreach ($product_menu as $action => $title) { ?>
     <ul>
         <li>
-            <a href="<?= $this->getProductUrl($action) ?>" <?php if (Adminko\System::action() == $action) { ?> style="color:white;"<?php } ?>>
-                <?= $title  ?> 
+            <a href="<?= $this->getProductUrl('features') ?>" <?php if (Adminko\System::action() == 'features') { ?> style="color:white;"<?php } ?>>
+                Преимущества
+            </a>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl('property') ?>" <?php if (Adminko\System::action() == 'property') { ?> style="color:white;"<?php } ?>>
+                Характеристики
+            </a>
+        </li>
+    </ul>
+<?php if ($this->getPictureCount()) { ?>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl('gallery') ?>" <?php if (Adminko\System::action() == 'gallery') { ?> style="color:white;"<?php } ?>>
+                Галерея
+            </a>
+        </li>
+    </ul>
+<?php } ?>
+<?php if ($this->getVideoCount()) { ?>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl('video') ?>" <?php if (Adminko\System::action() == 'video') { ?> style="color:white;"<?php } ?>>
+                Видео
+            </a>
+        </li>
+    </ul>
+<?php } ?>
+<?php if ($this->getOptionsCount()) { ?>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl('options') ?>" <?php if (Adminko\System::action() == 'options') { ?> style="color:white;"<?php } ?>>
+                Опции
+            </a>
+        </li>
+    </ul>
+<?php } ?>
+<?php if ($this->getExercisesCount()) { ?>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl('exercises') ?>" <?php if (Adminko\System::action() == 'exercises') { ?> style="color:white;"<?php } ?>>
+                Упражнения
+            </a>
+        </li>
+    </ul>
+<?php } ?>
+<?php if ($this->getDownloadCount()) { ?>
+    <ul>
+        <li>
+            <a href="<?= $this->getProductUrl('download') ?>" <?php if (Adminko\System::action() == 'download') { ?> style="color:white;"<?php } ?>>
+                Скачать
             </a>
         </li>
     </ul>

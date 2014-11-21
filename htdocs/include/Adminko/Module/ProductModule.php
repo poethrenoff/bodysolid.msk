@@ -67,6 +67,11 @@ class ProductModule extends Module
     {
         $this->actionItem('gallery');
     }
+
+    protected function actionVideo()
+    {
+        $this->actionItem('video');
+    }
     
     protected function actionOptions()
     {

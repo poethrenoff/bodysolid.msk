@@ -643,14 +643,14 @@ a.catright:hover{
     margin-bottom:20px;
 }	
 #item_options_img{ 
-    width:80px;
+    width:200px;
     overflow:hidden;
     float:left;
     margin-right:10px;
 }
 #item_options_spec{ 
     float:left;
-    width:550px;
+    width:440px;
 }
 #item_options_spec p{ 
     margin-top: 0px;
@@ -665,6 +665,9 @@ ul.item_gallery  li{
     padding-bottom:6px;
     list-style:none;
     float:left;
+    width: 150px;
+    height: 150px;
+    text-align: center;
 }
 
 .citemname{

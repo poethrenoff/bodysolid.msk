@@ -1,0 +1,9 @@
+<?= Adminko\View::block('module/product/subnav', $this) ?>
+
+<div id="feature_cms">
+    <h2>Видео</h2>
+<?php foreach ($this->getVideoList() as $video) { ?>
+<?= $video->getVideoCode(); ?><br><br>
+<?php } ?>
+</div>
+<div class="clear"></div>

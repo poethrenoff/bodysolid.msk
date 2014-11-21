@@ -4,9 +4,7 @@
     <h2>Характеристики</h2>
     <ul>
 <?php   foreach ($this->getPropertyList() as $property) { ?>
-<?php       if ($property->getPropertyKind() == 'number' && !is_null($property->getPropertyValue()) ||
-        $property->getPropertyKind() == 'string' && $property->getPropertyValue() !== '' ||
-        $property->getPropertyKind() == 'select' && $property->getPropertyValue()) { ?>
+<?php       if (!is_empty($property->getPropertyValue())) { ?>
         <li>
             <?= $property->getPropertyTitle() ?>: <?= $property->getPropertyValue() ?> <?= $property->getPropertyUnit() ?>
         </li>

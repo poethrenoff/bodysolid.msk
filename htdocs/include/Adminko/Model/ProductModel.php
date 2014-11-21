@@ -32,6 +32,13 @@ class ProductModel extends Model
             'action' => $action));
     }
     
+    // Возвращает количество изображений товара
+    public function getPictureCount()
+    {
+        return Model::factory('picture')->getCount(
+            array('picture_product' => $this->getId())
+        );
+    }
     // Возвращает изображения товара
     public function getPictureList()
     {
@@ -53,6 +60,21 @@ class ProductModel extends Model
         return $default_image->getPictureImage();
     }
     
+    // Возвращает количество опций
+    public function getOptionsCount()
+    {
+        return Db::selectCell('
+                select
+                    count(*)
+                from
+                    product
+                    inner join product_link on product_link.link_product_id = product.product_id
+                where
+                    product_link.product_id = :product_id and product.product_active = :product_active',
+            array('product_id' => $this->getId(), 'product_active' => 1)
+        );
+    }
+    
     // Возвращает список опций
     public function getOptionsList()
     {
@@ -70,7 +92,29 @@ class ProductModel extends Model
         );
         return $this->getBatch($records);
     }
+    
+    // Возвращает количество видео товара
+    public function getVideoCount()
+    {
+        return Model::factory('video')->getCount(
+            array('video_product' => $this->getId())
+        );
+    }
+    // Возвращает видео товара
+    public function getVideoList()
+    {
+        return Model::factory('video')->getList(
+            array('video_product' => $this->getId()), array('video_order' => 'asc')
+        );
+    }
 
+    // Возвращает количество упражнений товара
+    public function getExercisesCount()
+    {
+        return Model::factory('exercise')->getCount(
+            array('exercise_product' => $this->getId())
+        );
+    }
     // Возвращает упражнения товара
     public function getExercisesList()
     {
@@ -79,6 +123,13 @@ class ProductModel extends Model
         );
     }
     
+    // Возвращает количество файлов товара
+    public function getDownloadCount()
+    {
+        return Model::factory('download')->getCount(
+            array('download_product' => $this->getId())
+        );
+    }
     // Возвращает файлы товара
     public function getDownloadList()
     {

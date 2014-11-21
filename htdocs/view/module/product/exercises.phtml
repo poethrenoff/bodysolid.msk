@@ -31,7 +31,7 @@
 <?php foreach ($this->getExercisesList() as $exercise) { ?>
     <div id="item_options">
         <div id="item_options_img">
-            <a href="<?= $exercise->getExerciseImage() ?>" title="<?= $exercise->getExerciseTitle() ?>"><img src="<?= $exercise->getExerciseImage() . '/r/80/80' ?>" alt="<?= $exercise->getExerciseTitle() ?>"></a>
+            <a class="fancybox-thumb" rel="fancybox-thumb" href="<?= $exercise->getExerciseImage() ?>" title="<?= $exercise->getExerciseTitle() ?>"><img src="<?= $exercise->getExerciseImage() . '/r/200/200' ?>" alt="<?= $exercise->getExerciseTitle() ?>"></a>
         </div>
         <div id="item_options_spec">
             <p style="color: white"><?= $exercise->getExerciseTitle() ?></p>

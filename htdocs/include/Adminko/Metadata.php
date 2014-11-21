@@ -80,8 +80,8 @@ class Metadata
                 'product_id' => array('title' => 'Идентификатор', 'type' => 'pk'),
                 'product_catalogue' => array('title' => 'Каталог', 'type' => 'table', 'table' => 'catalogue', 'errors' => array('require')),
                 'product_line' => array('title' => 'Линейка', 'type' => 'table', 'table' => 'line'),
-                'product_title' => array('title' => 'Название', 'type' => 'string', 'main' => 1, 'errors' => array('require')),
-                'product_article' => array('title' => 'Артикул', 'type' => 'string', 'errors' => array('require')),
+                'product_title' => array('title' => 'Название', 'type' => 'string', 'errors' => array('require')),
+                'product_article' => array('title' => 'Артикул', 'type' => 'string', 'main' => 1, 'errors' => array('require')),
                 'product_description' => array('title' => 'Описание', 'type' => 'text', 'editor' => 1, 'errors' => array('require')),
                 'product_price' => array('title' => 'Цена', 'type' => 'float', 'errors' => array('require')),
                 'product_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('product_catalogue')),
@@ -89,6 +89,7 @@ class Metadata
             ),
             'links' => array(
                 'picture' => array('table' => 'picture', 'field' => 'picture_product'),
+                'video' => array('table' => 'video', 'field' => 'video_product'),
                 'download' => array('table' => 'download', 'field' => 'download_product'),
                 'exercise' => array('table' => 'exercise', 'field' => 'exercise_product'),
             ),
@@ -120,6 +121,19 @@ class Metadata
                 'picture_product' => array('title' => 'Товар', 'type' => 'table', 'table' => 'product', 'errors' => array('require')),
                 'picture_image' => array('title' => 'Изображение', 'type' => 'image', 'upload_dir' => 'product', 'main' => 1, 'errors' => array('require')),
                 'picture_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('picture_product')),
+            )
+        ),
+        
+        /**
+         * Таблица "Видео"
+         */
+        'video' => array(
+            'title' => 'Видео',
+            'fields' => array(
+                'video_id' => array('title' => 'Идентификатор', 'type' => 'pk'),
+                'video_product' => array('title' => 'Товар', 'type' => 'table', 'table' => 'product', 'errors' => array('require')),
+                'video_code' => array('title' => 'Видео', 'type' => 'text', 'main' => 1, 'errors' => array('require')),
+                'video_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('video_product')),
             )
         ),
         
@@ -167,7 +181,6 @@ class Metadata
                         array('value' => 'string', 'title' => 'Строка'),
                         array('value' => 'select', 'title' => 'Список')), 'errors' => array('require')),
                 'property_unit' => array('title' => 'Единица измерения', 'type' => 'string'),
-                'property_filter' => array('title' => 'Присутствует в фильтре', 'type' => 'boolean'),
                 'property_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('property_catalogue')),
                 'property_active' => array('title' => 'Видимость', 'type' => 'active')
             ),
