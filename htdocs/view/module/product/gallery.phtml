@@ -27,7 +27,7 @@
         });
     </script>
 
-    <h2>Галлерея</h2>
+    <h2>Галерея</h2>
     <ul class="item_gallery">
 <?php foreach ($this->getPictureList() as $picture) { ?>
         <li><a class="fancybox-thumb" rel="fancybox-thumb" href="<?= $picture->getPictureImage() ?>" title=""><img src="<?= $picture->getPictureImage() . '/r/150/150' ?>" border="0"></a></li>
