@@ -71,7 +71,7 @@ class System
         $routes = self::getRoutes();
 
         self::$page = null;
-        $url = '/' . trim(self::selfUrl(), '/');
+        $url = '/' . trim(urldecode(self::selfUrl()), '/');
 
         $page_list = array_reindex(self::$site['page'], 'page_path');
 

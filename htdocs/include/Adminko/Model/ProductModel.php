@@ -28,7 +28,7 @@ class ProductModel extends Model
     {
         return System::urlFor(array('controller' => 'product',
             'catalogue' => $this->getCatalogue()->getCatalogueName(),
-            'product' => to_file_name($this->getProductArticle(), true),
+            'product' => strtolower($this->getProductArticle()),
             'action' => $action));
     }
     

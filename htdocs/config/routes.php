@@ -18,13 +18,13 @@ $routes = array(
     '/product/@catalogue/@product' => array(
         'controller' => 'product',
         'catalogue' => '\w+',
-        'product' => '\w+',
+        'product' => '[a-z0-9_-]+',
         'action' => 'features'
     ),
     // Путь к товару, прочие вкладки
     '/product/@catalogue/@product/@action' => array(
         'controller' => 'product',
         'catalogue' => '\w+',
-        'product' => '\w+',
+        'product' => '[a-z0-9_-]+',
     ),
 );
