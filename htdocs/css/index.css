@@ -307,14 +307,15 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 }	
 #feat_products{
     position: relative; 
-    width:1162px;/*1170*/
-    min-height:220px;/*228*/
+    width:1142px;/*1170*/
+    min-height:200px;/*228*/
     padding:4px;
     background:url(/image/bg_feat_products.png) repeat;
     margin-left:auto;
     margin-right:auto;
     clear:both;
     z-index:10;/*1000000*/
+    padding: 20px;
 }
 
 #bg_footer{
@@ -464,9 +465,10 @@ ul#navmenu-h li:hover ul,ul#navmenu-h ul li:hover ul,ul#navmenu-h ul ul li:hover
 }
 #feature_category_main{
     position: relative;   
-    width:1024px;/*988*/
-    height:367px;	
-    clear:both;	
+    width:1000px;
+    height:367px;
+    clear:both;
+    padding-right: 24px;
 }
 
 #product_scroll{   

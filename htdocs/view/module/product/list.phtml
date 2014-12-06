@@ -1,7 +1,7 @@
 <div id="feature_category_main">
-<?php if ($this instanceof Adminko\Model\CatalogueModel ) { ?>
+<?php if ($this->object instanceof Adminko\Model\CatalogueModel ) { ?>
     <?= $this->getCatalogueDescription() ?>
-<?php } elseif ($this instanceof Adminko\Model\LineModel ) { ?>
+<?php } elseif ($this->object instanceof Adminko\Model\LineModel ) { ?>
     <?= $this->getLineDescription() ?>
 <?php } ?>
 </div>
