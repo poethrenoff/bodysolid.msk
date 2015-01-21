@@ -536,7 +536,7 @@ a.catright:hover{
     margin-left:30px;
 }
 #catitems li {
-    display:block; float:left; width:220px; overflow:hidden;  margin:6px 5px 6px 0; border:0;  background:#221d18; 
+    display:block; float:left; width:220px; height: 280px; overflow:hidden;  margin:6px 5px 6px 0; border:0;  background:#221d18; 
 }
 
 #feature_content{
