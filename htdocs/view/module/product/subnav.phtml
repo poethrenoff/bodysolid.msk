@@ -69,7 +69,11 @@
 <?php } ?>
     <ul>
         <li>
+<?php if ($this->getProductPrice() > 0) { ?>
             Цена: <b><?= $this->getProductPrice() ?></b> руб
+<?php } else { ?>
+            Цена: <b>уточняйте</b>
+<?php } ?>
         </li>
     </ul>
     <ul>
