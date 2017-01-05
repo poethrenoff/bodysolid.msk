@@ -147,6 +147,20 @@ table.table {
 		text-align: center;
 		white-space: nowrap;
 	}
+    
+	table.table div.editable {
+            cursor: pointer;
+	}
+	table.table div.editable span {
+            display: inline-block;
+            border-bottom: 1px dashed #000080;
+	}
+	table.table div.editable input {
+            display: none;
+	}
+        table.table td.index div.editable input {
+            text-align: right;
+        }
 
 table.service {
 	width: 100%;

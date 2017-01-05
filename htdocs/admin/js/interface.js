@@ -58,6 +58,62 @@ function block_card( param_list ) {
 	}).change();
 }
 
+function editable() {
+    $('.editable').click(function(){
+        var $div   = $(this);
+        var $span  = $div.find('span');
+        var $input = $div.find('input');
+        
+        $input.width($div.width() - 5);
+        $input.val($span.text());
+        $span.hide(); $input.show();
+        $input.focus(); $input.select();
+    });
+    
+    $('.editable input').focusout(function(){
+        var $input = $(this);
+        var $div   = $(this).parent();
+        var $span  = $div.find('span');
+        
+        $input.hide(); $span.show();
+    }).keydown(function(event) {
+        var $input = $(this);
+        var $div   = $(this).parent();
+        var $span  = $div.find('span');
+        
+        switch (event.which) {
+            case 13: // Enter
+                var data = {'field': $input.attr('name'), 'value': $input.val()};
+                $.post($div.attr('action'), data, function(data){
+                    if (data.success) {
+                        $span.text(data.value);
+                        $input.hide(); $span.show();
+                    } else {
+                        alert(data.message);
+                    }
+                }, 'json');
+                break;
+            case 38: // Up
+                var value = parseInt($input.val());
+                if (!isNaN(value)) {
+                    $input.val(value + 1);
+                }
+                break;
+            case 40: // Down
+                var value = parseInt($input.val());
+                if (!isNaN(value)) {
+                    $input.val(value - 1);
+                }
+                break;
+            case 27: // Esc
+                $input.hide(); $span.show();
+                break;
+        }
+    }).click(function(){
+        return false;
+    });    
+}
+
 var CheckForm =
 {
 	// Массив обработчиков полей по умолчанию

@@ -113,6 +113,12 @@ class Table extends Admin
             foreach ($this->show_fields as $show_field) {
                 $records[$record_id][$show_field] = Field::factory($this->fields[$show_field]['type'])
                     ->set($records[$record_id][$show_field])->view();
+
+                if (isset($this->fields[$show_field]['editable']) && $this->fields[$show_field]['editable']) {
+                    $records[$record_id]['_extra']['edit_url'] =
+                        System::urlFor(array('object' => $this->object,
+                            'action' => 'save_field', 'id' => $record[$this->primary_field]));
+                } 
             }
 
             $records[$record_id] += $this->getRecordLinks($record);
@@ -423,6 +429,55 @@ class Table extends Admin
 
         if ($redirect) {
             $this->redirect();
+        }
+    }
+
+    protected function actionSaveField()
+    {
+        try {
+            $this->isActionAllow('edit', true);
+
+            $record = $this->getRecord();
+            $primary_field = $record[$this->primary_field];
+
+            $update_field_name = init_string('field');
+            if (!isset($this->fields[$update_field_name])) {
+                throw new \AlarmException('Поля "' . $update_field_name . '" не существует.');
+            }
+            $field_desc = $this->fields[$update_field_name];
+            if (!isset($field_desc['editable']) || !$field_desc['editable']) {
+                throw new \AlarmException('Поле "' . $field_desc['title'] . '" нельзя редактировать в списке.');
+            }
+            
+            $update_fields = array();
+            foreach ($this->fields as $field_name => $field_desc) {
+                if (isset($field_desc['no_edit']) && $field_desc['no_edit']) {
+                    continue;
+                }
+
+                if ($field_name == $update_field_name) {
+                    $field = Field::factory($field_desc['type']);
+                    if (!($field->parse(init_string('value')))) {
+                        throw new \AlarmException('Ошибочное значение поля "' . $field_desc['title'] . '".');
+                    }
+                    if (!($field->check($field_desc['errors']))) {
+                        throw new \AlarmException('Ошибочное значение поля "' . $field_desc['title'] . '".');
+                    }
+                    $update_fields[$field_name] = $field->get();
+                } else {
+                    $update_fields[$field_name] = $record[$field_name];
+                }
+            }
+
+            $this->checkGroupUnique($update_fields, $primary_field);
+
+            $this->clearDefaultFields($update_fields);
+
+            Db::update($this->object, $update_fields, array($this->primary_field => $primary_field));
+            
+            $this->content = json_encode(array('success' => true, 'value' => (string) $field->get()));
+        } catch (\AlarmException $e) {
+            $this->content = json_encode(array('success' => false, 'message' => $e->getMessage()));
         }
     }
 

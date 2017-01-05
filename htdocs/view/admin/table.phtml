@@ -53,7 +53,7 @@
 <? $odd=true; foreach($this -> records as $record): $odd=!$odd?>
 	<tr class="record <?=$odd?'odd':'even'?>" onmouseover="this.className = 'record select'" onmouseout="this.className = 'record <?=$odd?'odd':'even'?>'">
 <?foreach($this -> header as $field=>$column):?>
-		<td<?if($column['main']):?> class="main<?if($record['_hidden']):?> hidden<?endif;?>"<?endif;?><?if($column['type'] === 'pk'):?> class="index"<?endif;?><?if($column['type'] === '_link'):?> class="link"<?endif;?><?if($field === '_action'):?> class="action"<?endif;?>>
+		<td<?if($column['main']):?> class="main<?if($record['_hidden']):?> hidden<?endif;?>"<?endif;?><?if($column['type'] === 'pk' || $column['type'] === 'int' || $column['type'] === 'float'):?> class="index"<?endif;?><?if($column['type'] === '_link'):?> class="link"<?endif;?><?if($field === '_action'):?> class="action"<?endif;?>>
 <?if($column['main'] && $record['_depth']):?>
 <?for($i=0;$i<$record['_depth'];$i++):?><div class="tree_offset"><?endfor;?> 
 <?endif;?>
@@ -74,8 +74,13 @@
 				<input type="hidden" name="check[<?=$record[$field]['id']?>]" value="0">
 				<input type="checkbox" name="check[<?=$record[$field]['id']?>]" value="1" class="check" <?if($record[$field]['checked']):?> checked="checked"<?endif;?>/>
 			<div>
+<?elseif($column['editable']):?>
+			<div class="editable" action="<?=$record['_extra']['edit_url'] ?>">
+				<span><?=$record[$field]?></span>
+				<input name="<?=$field?>" value="<?=$record[$field]?>" />
+			<div>
 <?else:?>
-			<?=$record[$field]?>
+			<?=$record[$field]?> 
 <?endif;?>
 <?if($column['main'] && $record['_depth']):?>
 <?for($i=0;$i<$record['_depth'];$i++):?></div><?endfor;?> 
@@ -102,3 +107,8 @@
 <?if($this -> mode == 'form'):?>
 </form>
 <?endif;?>
+<script type="text/javascript">
+$(function(){
+    editable();
+});
+</script>

@@ -453,8 +453,16 @@ abstract class Admin extends \Adminko\Object
                 }
                 
                 if (isset($field_desc['translate']) && $field_desc['translate'] &&
-                        !($field_desc['type'] == 'string' || $field_desc['type'] == 'text')) {
+                        !in_array($field_desc['type'], array('string', 'text'))) {
                     throw new \Exception('Ошибка в описании поля "' . $object_name . '.' . $field_name . '". Переводимыми могут быть только поля типа string и text.');
+                }
+                if (isset($field_desc['editable']) && $field_desc['editable'] &&
+                        !in_array($field_desc['type'], array('string', 'int', 'float'))) {
+                    throw new \Exception('Ошибка в описании поля "' . $object_name . '.' . $field_name . '". Редактировать в списке можно только поля типа string, int и float.');
+                }
+                if (isset($field_desc['editable']) && $field_desc['editable'] &&
+                        isset($field_desc['translate']) && $field_desc['translate']) {
+                    throw new \Exception('Ошибка в описании поля "' . $object_name . '.' . $field_name . '". Переводимые поля нельзя редактировать в списке.');
                 }
             }
             

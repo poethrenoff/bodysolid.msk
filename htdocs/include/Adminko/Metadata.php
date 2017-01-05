@@ -83,7 +83,7 @@ class Metadata
                 'product_title' => array('title' => 'Название', 'type' => 'string', 'errors' => array('require')),
                 'product_article' => array('title' => 'Артикул', 'type' => 'string', 'main' => 1, 'errors' => array('require')),
                 'product_description' => array('title' => 'Описание', 'type' => 'text', 'editor' => 1, 'errors' => array('require')),
-                'product_price' => array('title' => 'Цена', 'type' => 'float', 'errors' => array('require')),
+                'product_price' => array('title' => 'Цена', 'type' => 'float', 'show' => 1, 'editable'=> 1, 'errors' => array('require')),
                 'product_order' => array('title' => 'Порядок', 'type' => 'order', 'group' => array('product_catalogue')),
                 'product_active' => array('title' => 'Видимость', 'type' => 'active'),
             ),
